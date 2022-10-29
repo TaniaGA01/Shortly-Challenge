@@ -8,7 +8,7 @@ import Stats from './components/statsInfo.vue'
 <template>
   <Header />
   <Intro />
-  <div class="bg-gray-100 absolute w-full">
+  <div class="bg-gray-100 absolute w-full z-50">
     <ShortenLinkBlock />
     <Stats />
   </div>

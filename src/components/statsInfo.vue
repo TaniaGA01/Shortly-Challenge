@@ -1,57 +1,96 @@
-<template>
-    <div class="py-12">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div class="lg:text-center">
-                <p class="mt-2 text-3xl font-bold leading-8 tracking-tight text-gray-900 sm:text-4xl">Statistiques avancées</p>
-                <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">Lorem ipsum dolor sit amet consect
-                    adipisicing elit. Possimus magnam voluptatum cupiditate veritatis in accusamus quisquam.</p>
-            </div>
+<script lang="ts">
+import { reactive, defineComponent, onMounted } from 'vue';
+import { createFeature } from '../services/helpers/features'
 
-            <div class="mt-10">
-                <dl class="space-y-10 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10 md:space-y-0">
-                    <div v-for="feature in features" :key="feature.name" class="relative">
-                        <dt>
-                            <div
-                                class="absolute flex h-12 w-12 items-center justify-center rounded-md bg-indigo-500 text-white">
-                                <component :is="feature.icon" class="h-6 w-6" aria-hidden="true" />
-                            </div>
-                            <p class="ml-16 text-lg font-medium leading-6 text-gray-900">{{ feature.name }}</p>
-                        </dt>
-                        <dd class="mt-2 ml-16 text-base text-gray-500">{{ feature.description }}</dd>
+interface IFeatureData{
+    featureList:object
+}
+
+export default defineComponent({
+
+    setup() {
+        const featureData = reactive<IFeatureData>({
+            featureList: {}
+        })
+
+        const getFeatures = async () => {
+            const response = await createFeature();
+            featureData.featureList = reactive(response.datas)
+        }
+
+        onMounted(() => {
+            getFeatures()
+        })
+
+        return {
+            featureData,
+            getFeatures
+        }
+     }
+    
+})
+</script>
+
+<template>
+    <div class="py-24">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative">
+            <div class="lg:text-center">
+                <p class="text-center sm-text-left mt-2 text-3xl font-bold leading-8 tracking-tight text-gray-900 sm:text-4xl">Statistiques avancées</p>
+                <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto text-center sm-text-left ">Suivez les performances de vos liens sur le Web grâce à notre tableau de bord de statistiques avancées.</p>
+            </div>
+            <div class="mt-24 ">
+                <div class="grid grid-cols-1 sm:grid-cols-3 grid-row gap-6 featureBlock">
+                    <div v-for="feature in featureData.featureList" 
+                    :key="feature"
+                    :class="`max-sm:text-center h-fit bg-white py-6 px-6 lg:h-72 rounded-xl ${feature.margin}` " >
+                        <div 
+                        class="sm:justify-start bg-purple-900 inline-block rounded-full -mt-56  justify-center">
+                            <img width="35" :src="feature.icon" class="m-4 centerIcon" />
+                        </div>
+                        <h1 class="text-xl font-bold mt-6 text-center sm:text-left">{{ feature.name }}</h1>
+                        <p class="text-gray-400 mt-6 text-center sm:text-left">{{ feature.description }}</p>
                     </div>
-                </dl>
+                </div>
             </div>
         </div>
     </div>
 </template>
-
-<script setup>
-import { BoltIcon, ChatBubbleBottomCenterTextIcon, GlobeAltIcon, ScaleIcon } from '@heroicons/vue/24/outline'
-
-const features = [
-    {
-        name: 'Competitive exchange rates',
-        description:
-            'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.',
-        icon: GlobeAltIcon,
-    },
-    {
-        name: 'No hidden fees',
-        description:
-            'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.',
-        icon: ScaleIcon,
-    },
-    {
-        name: 'Transfers are instant',
-        description:
-            'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.',
-        icon: BoltIcon,
-    },
-    {
-        name: 'Mobile notifications',
-        description:
-            'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.',
-        icon: ChatBubbleBottomCenterTextIcon,
-    },
-]
-</script>
+<style scoped>
+.mt-0{
+    margin-top: 0px;
+}
+.mt-50{
+    margin-top: 50px;
+}
+.mt-100{
+    margin-top: 100px;
+}
+.featureBlock::before{
+    content: "";
+    position: absolute;
+    border: 10px solid #2dd4bf;
+    border-bottom-width: medium;
+    width: 84%;
+    top: 65%;
+    z-index: -1;
+}
+@media (max-width: 767px)  {
+    .mt-0 {
+            margin-top: 0px;
+        }
+    
+    .mt-50, .mt-100 {
+        margin-top: 50px;
+    }
+    .featureBlock::before {
+        content: "";
+        position: absolute;
+        border-bottom: 6px solid #2dd4bf;
+        width: 0%;
+        top: 21%;
+        z-index: -1;
+        height: 76%;
+        left: 48%;
+    }
+}
+</style>

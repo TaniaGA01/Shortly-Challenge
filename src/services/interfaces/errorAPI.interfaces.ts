@@ -3,3 +3,7 @@ export interface apiErrorInterface {
     datas?: any;
     error_code: string;
 }
+export interface featuresErrorInterface {
+    message: string;
+    datas?: any;
+}

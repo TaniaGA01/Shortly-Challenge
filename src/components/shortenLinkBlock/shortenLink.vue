@@ -44,8 +44,6 @@ export default defineComponent({
             text:-1
         })
 
-
-
         const sendUrl = async (e: string) => {
             dataLink.urlObject = await createShortLink(e) as Object;
 
@@ -120,7 +118,7 @@ export default defineComponent({
                     </div>
                     <div class="basis-full md:basis-2/12 text-right ">
                         <button
-                            class="text-xl md:text-lg bg-teal-400 hover:bg-teal-600 focus:outline-none focus:ring focus:ring-teal-300 active:bg-teal-700 px-5 py-2 leading-5 rounded-lg font-semibold text-white h-14 w-full mt-3 sm:mt-0"
+                            class="text-xl md:text-md bg-teal-400 hover:bg-teal-600 focus:outline-none focus:ring focus:ring-teal-300 active:bg-teal-700 px-5 py-2 leading-5 rounded-lg font-semibold text-white h-14 w-full mt-3 sm:mt-0"
                             @click="sendUrl(inputData.url)">
                             Raccourcir le lien
                         </button>
@@ -142,10 +140,10 @@ export default defineComponent({
                         :id="`${idx}`"
                         data-clipboard-target="#shortLink" 
                         :class="`clipboard${idx}`"
-                        class="px-5 py-4"
+                        class="sm:px-5 sm:py-4 w-full"
                         @click="copyShortLink(idx)">
                             <span
-                            class="text-md bg-teal-400 hover:bg-teal-600 focus:outline-none focus:ring focus:ring-teal-300 active:bg-teal-700 px-5 py-3 leading-5 rounded-lg font-semibold text-white flex flex-wrap"
+                            class="text-2xl sm:text-md bg-teal-400 hover:bg-teal-600 focus:outline-none focus:ring focus:ring-teal-300 active:bg-teal-700 px-5 py-3 leading-5 rounded-lg font-semibold text-white flex flex-wrap w-full flex justify-center"
                             v-if="shortlyCopyText.text !== idx">Copier lien</span>
                             <span 
                             class="text-md bg-purple-900 hover:bg-purple-600 focus:outline-none focus:ring focus:ring-purple-300 active:bg-purple-700 px-5 py-3 leading-5 rounded-lg font-semibold text-white flex flex-wrap"
