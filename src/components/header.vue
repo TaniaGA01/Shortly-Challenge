@@ -57,7 +57,7 @@ const rightNav = [
                                         <hr class="mx-4" />
                                     </div>
                                     <DisclosureButton v-for="item in rightNav" :key="item.name" as="a" :href="item.href"
-                                        :class="[item.button ? 'bg-teal-400 hover:bg-teal-600 focus:outline-none focus:ring focus:ring-teal-300 active:bg-teal-700 px-5 py-6 text-sm leading-5 rounded-full font-semibold text-white flex items-center justify-center text-2xl' : 'text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-6 rounded-md text-base font-medium text-2xl', 'px-3 py-4 rounded-md text-base font-medium text-2xl']">{{ item.name }}
+                                        :class="[item.button ? 'bg-teal-400 hover:bg-teal-600 focus:outline-none focus:ring focus:ring-teal-300 active:bg-teal-700 px-5 py-6 text-sm leading-5 rounded-full font-semibold text-white flex items-center justify-center text-2xl' : 'text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-6 text-base font-medium text-2xl', 'px-3 py-4 rounded-full text-base font-medium text-2xl']">{{ item.name }}
                                     </DisclosureButton>
                                 </div>
                             </DisclosurePanel>
@@ -70,7 +70,7 @@ const rightNav = [
                         <div class="hidden sm:ml-6 sm:block">
                             <div class="flex space-x-4">
                                 <a v-for="item in rightNav" :key="item.name" :href="item.href"
-                                    :class="[item.button ? 'bg-teal-400 hover:bg-teal-600 focus:outline-none focus:ring focus:ring-teal-300 active:bg-teal-700 px-5 py-2 text-sm leading-5 rounded-full font-semibold text-white flex items-center' : 'text-gray-400 hover:text-gray-700 hover:font-semibold', 'px-3 py-2 rounded-md text-base font-medium']">{{ item.name }}</a>
+                                    :class="[item.button ? 'bg-teal-400 hover:bg-teal-600 focus:outline-none focus:ring focus:ring-teal-300 active:bg-teal-700 px-5 py-2 text-sm leading-5 rounded-full font-semibold text-white flex items-center rounded-full' : 'text-gray-400 hover:text-gray-700 hover:font-semibold', 'px-3 py-2 rounded-full text-base font-medium']">{{ item.name }}</a>
                             </div>
                         </div>
                     </div>
