@@ -12,7 +12,7 @@
                     </div>
                     <div class="my-16 text-center lg:my-12 lg:text-left">
                         <a href="#"
-                            class="text-lg bg-teal-400 hover:bg-teal-600 focus:outline-none focus:ring focus:ring-teal-300 active:bg-teal-700 px-5 py-4 text-sm rounded-full font-semibold text-white w-full">
+                            class="text-xl bg-teal-400 hover:bg-teal-600 focus:outline-none focus:ring focus:ring-teal-300 active:bg-teal-700 px-5 py-4 rounded-full font-semibold text-white w-full">
                             Commencer
                         </a>
                     </div>
