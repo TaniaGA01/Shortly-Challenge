@@ -10,7 +10,7 @@ import Footer from './components/footer.vue'
 <template>
   <Header />
   <Intro />
-  <div class="bg-gray-100">
+  <div class="bg-gray-100 pt-12 sm:pt-16">
     <ShortenLinkBlock />
     <Stats />
   </div>

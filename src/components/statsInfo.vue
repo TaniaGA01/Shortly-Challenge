@@ -32,7 +32,7 @@ export default defineComponent({
 </script>
 
 <template>
-    <div class="pb-24 pt-36 max-sm:pt-48">
+    <div class="pb-24 pt-36 max-sm:pt-24">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative">
             <div class="lg:text-center">
                 <p class="text-center sm-text-left mt-2 text-3xl font-bold leading-8 tracking-tight text-gray-900 sm:text-4xl">Statistiques avancées</p>
@@ -72,7 +72,7 @@ export default defineComponent({
 .featureBlock::before{
     content: "";
     position: absolute;
-    border: 10px solid #2dd4bf;
+    border: 6px solid #2dd4bf;
     border-bottom-width: medium;
     width: 84%;
     top: 50%;
@@ -89,12 +89,12 @@ export default defineComponent({
     .featureBlock::before {
         content: "";
         position: absolute;
-        border-bottom: 6px solid #2dd4bf;
+        border-bottom: 6px solid #2dd4bf !important;
         width: 0%;
         top: 21%;
         z-index: -1;
         height: 76%;
-        left: 47%;
+        left: 48%;
     }
 }
 </style>

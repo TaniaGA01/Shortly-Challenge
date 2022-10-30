@@ -102,10 +102,9 @@ export default defineComponent({
 </script>
 
 <template>
-    
-        <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 ">
-            <div class="relative">
-            <div class="shortlyBlock bg-purple-900 -mt-16 sm:overflow-hidden rounded-lg absolute w-full">
+    <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 ">
+        <div class="relative">
+            <div class="shortlyBlock bg-purple-900 -mt-36 sm:overflow-hidden rounded-lg absolute w-full">
                 <div class="space-y-6 px-7 py-9 sm:p-10">
                     <div class="sm:flex w-full">
                         <div class="basis-full md:basis-5/6 sm:pr-2">
@@ -126,31 +125,31 @@ export default defineComponent({
                     </div>
                 </div>
             </div>
-            <div v-show="showShortlyLinks">
-                <div v-for="(shortlyObj, idx) in dataLink.shortlyLinksArray" :key="idx" :id="`${idx}`" class="pt-36 sm:pt-24">
-                    <div class="bg-white m:overflow-hidden rounded-lg mt-3 px-8 py-5 flex flex-row flex-wrap items-center w-full	">
-                        <div class="sm:w-8/12 md:basis-6/12 basis-full max-sm:text-center max-sm:border-b-4 py-4">
-                            <p id="shortLink" class="text-2xl">{{ shortlyObj.original_link }}</p>
-                        </div>
-                        <div class="sm:w-2/12 md:basis-4/12 basis-full text-right max-sm:text-center py-4">
-                            <p id="shortLink2" class="text-2xl font-semibold text-teal-400">{{ shortlyObj.short_link }}</p>
-                        </div>
-                        <div class="sm:w-2/12 md:basis-2/12 basis-full text-right max-sm:text-center">
-                            <button type="button" :id="`${idx}`" data-clipboard-target="#shortLink" :class="`clipboard${idx}`"
-                                class="sm:px-5 sm:py-4 w-full" @click="copyShortLink(idx)">
-                                <span
-                                    class="text-2xl sm:text-lg bg-teal-400 hover:bg-teal-600 focus:outline-none focus:ring focus:ring-teal-300 active:bg-teal-700 px-5 py-3 leading-5 rounded-lg font-semibold text-white flex flex-wrap w-full flex justify-center"
-                                    v-if="shortlyCopyText.text !== idx">Copier lien</span>
-                                <span
-                                    class="text-2xl sm:text-lg bg-purple-900 hover:bg-purple-600 focus:outline-none focus:ring focus:ring-purple-300 active:bg-purple-700 px-5 py-3 leading-5 rounded-lg font-semibold text-white flex flex-wrap justify-center"
-                                    v-else>Lien copié</span>
-                            </button>
-                        </div>
+        </div>
+        <div class="static max-sm:pt-12" v-show="showShortlyLinks">
+            <div v-for="(shortlyObj, idx) in dataLink.shortlyLinksArray" :key="idx" :id="`${idx}`">
+                <div class="bg-white m:overflow-hidden rounded-lg mt-3 px-8 py-5 flex flex-row flex-wrap items-center w-full">
+                    <div class="sm:w-8/12 md:basis-6/12 basis-full max-sm:text-center max-sm:border-b-4 py-4">
+                        <p id="shortLink" class="text-2xl">{{ shortlyObj.original_link }}</p>
+                    </div>
+                    <div class="sm:w-2/12 md:basis-4/12 basis-full text-right max-sm:text-center py-4">
+                        <p id="shortLink2" class="text-2xl font-semibold text-teal-400">{{ shortlyObj.short_link }}</p>
+                    </div>
+                    <div class="sm:w-2/12 md:basis-2/12 basis-full text-right max-sm:text-center">
+                        <button type="button" :id="`${idx}`" data-clipboard-target="#shortLink" :class="`clipboard${idx}`"
+                            class="sm:px-5 sm:py-4 w-full" @click="copyShortLink(idx)">
+                            <span
+                                class="text-2xl sm:text-lg bg-teal-400 hover:bg-teal-600 focus:outline-none focus:ring focus:ring-teal-300 active:bg-teal-700 px-5 py-3 leading-5 rounded-lg font-semibold text-white flex flex-wrap w-full flex justify-center"
+                                v-if="shortlyCopyText.text !== idx">Copier lien</span>
+                            <span
+                                class="text-2xl sm:text-lg bg-purple-900 hover:bg-purple-600 focus:outline-none focus:ring focus:ring-purple-300 active:bg-purple-700 px-5 py-3 leading-5 rounded-lg font-semibold text-white flex flex-wrap justify-center"
+                                v-else>Lien copié</span>
+                        </button>
                     </div>
                 </div>
             </div>
-            </div>
         </div>
+    </div>
 </template>
 <style scoped>
 .shortlyBlock {
