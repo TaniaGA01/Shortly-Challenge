@@ -32,13 +32,13 @@ export default defineComponent({
 </script>
 
 <template>
-    <div class="py-24">
+    <div class="pb-24 pt-36 max-sm:pt-48">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative">
             <div class="lg:text-center">
                 <p class="text-center sm-text-left mt-2 text-3xl font-bold leading-8 tracking-tight text-gray-900 sm:text-4xl">Statistiques avancées</p>
                 <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto text-center sm-text-left ">Suivez les performances de vos liens sur le Web grâce à notre tableau de bord de statistiques avancées.</p>
             </div>
-            <div class="mt-24 ">
+            <div class="mt-24 featureContainer">
                 <div class="grid grid-cols-1 sm:grid-cols-3 grid-row gap-6 featureBlock">
                     <div v-for="feature in featureData.featureList" 
                     :key="feature"
@@ -47,7 +47,7 @@ export default defineComponent({
                         class="sm:justify-start bg-purple-900 inline-block rounded-full -mt-56  justify-center">
                             <img width="35" :src="feature.icon" class="m-4 centerIcon" />
                         </div>
-                        <h1 class="text-xl font-bold mt-6 text-center sm:text-left">{{ feature.name }}</h1>
+                        <h2 class="text-xl font-bold mt-6 text-center sm:text-left max-sm:text-2xl">{{ feature.name }}</h2>
                         <p class="text-gray-400 mt-6 text-center sm:text-left">{{ feature.description }}</p>
                     </div>
                 </div>
@@ -65,13 +65,17 @@ export default defineComponent({
 .mt-100{
     margin-top: 100px;
 }
+.featureContainer{
+    position:inherit;
+    z-index: 1;
+}
 .featureBlock::before{
     content: "";
     position: absolute;
     border: 10px solid #2dd4bf;
     border-bottom-width: medium;
     width: 84%;
-    top: 65%;
+    top: 50%;
     z-index: -1;
 }
 @media (max-width: 767px)  {
@@ -90,7 +94,7 @@ export default defineComponent({
         top: 21%;
         z-index: -1;
         height: 76%;
-        left: 48%;
+        left: 47%;
     }
 }
 </style>

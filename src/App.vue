@@ -3,15 +3,19 @@ import ShortenLinkBlock from './components/shortenLinkBlock/shortenLink.vue'
 import Header from './components/header.vue'
 import Intro from './components/intro.vue'
 import Stats from './components/statsInfo.vue'
+import BottomBlock from './components/bottomBlock.vue'
+import Footer from './components/footer.vue'
 </script>
 
 <template>
   <Header />
   <Intro />
-  <div class="bg-gray-100 absolute w-full z-50">
+  <div class="bg-gray-100">
     <ShortenLinkBlock />
     <Stats />
   </div>
+  <BottomBlock />
+  <Footer />
 
 </template>
 

@@ -14,7 +14,7 @@ export const featuresFakers = [
         margin: 'mt-50'
     },
     {
-        name: 'Fully Customizable',
+        name: 'Entièrement personnalisable',
         description:
             'Improve brand awareness and content discoverability through customizable links, supercharging audience engagement. ',
         icon: '/images/icon-fully-customizable.svg',
