@@ -32,7 +32,7 @@ export default defineComponent({
 </script>
 
 <template>
-    <div class="pb-24 pt-36 max-sm:pt-24">
+    <div class="pb-24 pt-24 max-sm:pt-24">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative">
             <div class="lg:text-center">
                 <p class="text-center sm-text-left mt-2 text-3xl font-bold leading-8 tracking-tight text-gray-900 sm:text-4xl">Statistiques avancées</p>
@@ -41,11 +41,11 @@ export default defineComponent({
             <div class="mt-24 featureContainer">
                 <div class="grid grid-cols-1 sm:grid-cols-3 grid-row gap-6 featureBlock">
                     <div v-for="feature in featureData.featureList" 
-                    :key="feature"
+                    :key="feature.name"
                     :class="`max-sm:text-center h-fit bg-white py-6 px-6 lg:h-72 rounded-xl ${feature.margin}` " >
                         <div 
                         class="sm:justify-start bg-purple-900 inline-block rounded-full -mt-56  justify-center">
-                            <img width="35" :src="feature.icon" class="m-4 centerIcon" />
+                            <img width="35" :src="feature.icon" class="m-4 centerIcon" :alt="feature.name"/>
                         </div>
                         <h2 class="text-xl font-bold mt-6 text-center sm:text-left max-sm:text-2xl">{{ feature.name }}</h2>
                         <p class="text-gray-400 mt-6 text-center sm:text-left">{{ feature.description }}</p>

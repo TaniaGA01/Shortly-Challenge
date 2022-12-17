@@ -13,7 +13,7 @@ const rightNav = [
 ]
 </script>
 <template>
-    <Disclosure as="nav" class="bg-white" v-slot="{ open }">
+    <Disclosure as="nav" class="bg-white mt-8" v-slot="{ open }">
         <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 ">
             <div class="lg:columns-2 sm:columns-1">
                 <div class="relative flex h-16 items-center justify-between">
